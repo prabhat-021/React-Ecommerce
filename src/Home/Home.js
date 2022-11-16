@@ -9,5 +9,5 @@ export default function Home(){
 }
 
 const Wrapper =styled.section`
-
+height:100%;
 `;

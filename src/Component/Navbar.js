@@ -1,10 +1,16 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { FiShoppingCart } from "react-icons/fi";
+import { CgMenu, CgClose } from "react-icons/cg";
+import { useState } from "react";
+
 export default function Navbar() {
+
+    const [menuIcon, setMenuIcon] = useState();
+
     return (
         <Nav>
-            <div className="navbar">
+            <div className={menuIcon ? "navbar active" : "navbar"}>
                 <ul className="navbar-lists">
                     <li>
                         <NavLink to="/" className="navbar-link home-link">HOME</NavLink>
@@ -25,6 +31,21 @@ export default function Navbar() {
                         </NavLink>
                     </li>
                 </ul>
+                <div className="mobile-navbar-btn" >
+                    <CgMenu
+                        name="menu-outline"
+                        className="mobile-nav-icon"
+                        onClick={() => setMenuIcon(true)} 
+
+                        />
+                    <CgClose
+                        name="close-outline"
+                        className="mobile-nav-icon close-outline"
+                        onClick={() => setMenuIcon(false)} 
+
+                        />
+
+                </div>
             </div>
         </Nav>
     );
