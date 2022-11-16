@@ -1,9 +1,13 @@
+import styled from "styled-components";
 import "./home.css";
 
 export default function Home(){
     return (
-        <section>
-            <div>Home</div>
-        </section>
+        <Wrapper className="test">Home
+        </Wrapper>
     );
 }
+
+const Wrapper =styled.section`
+    background-color: ${({theme}) => theme.colors.bg};
+`;
