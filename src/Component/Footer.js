@@ -91,7 +91,7 @@ const Wrapper = styled.section`
     background-color: ${({ theme }) => theme.colors.footer_bg};
     h3 {
       color: ${({ theme }) => theme.colors.hr};
-      color:black;
+      ${'' /* color:black; */}
       font-size: 3rem;
       margin-bottom: 2.4rem;
     }
