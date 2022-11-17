@@ -1,13 +1,9 @@
-import styled from "styled-components";
+// import styled from "styled-components";
+import HeroSection from "../Component/HeroSection";
 import "./home.css";
 
 export default function Home(){
     return (
-        <Wrapper className="test">Home
-        </Wrapper>
+       <HeroSection />
     );
 }
-
-const Wrapper =styled.section`
-height:100%;
-`;
