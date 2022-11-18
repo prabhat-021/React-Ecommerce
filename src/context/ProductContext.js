@@ -33,7 +33,7 @@ const AppProvider = ({ children }) => {
 
     useEffect(() => {
         getProducts(API);
-    })
+    },[]);
 
     return <AppContext.Provider value={{ ...state }}>{children}</AppContext.Provider>
 };
