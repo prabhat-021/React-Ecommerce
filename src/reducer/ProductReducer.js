@@ -36,7 +36,23 @@ export function ProductReducer(state, action) {
                 isError: true,
             }
 
-
+        case "SET_SINGLE_LOADING":
+            return {
+                ...state,
+                isSingleLoading: true,
+            }
+        case "SET_SINGLE_PRODUCT":
+            return {
+                ...state,
+                isSingleLoading: false,
+                singleProduct: action.payload,
+            }
+        case "SET_SINGLE_ERROR":
+            return {
+                ...state,
+                isSingleLoading: false,
+                isError: true,
+            }
         default:
             return { ...state, };
     }
