@@ -6,8 +6,6 @@ import Sort from "../Component/Sort";
 import { useFilterContext } from "../context/FilterContext";
 
 const Products = () => {
-  const { filter_product } = useFilterContext();
-  console.log(filter_product);
   return (
     <Wrapper>
       <div className="container grid grid-filter-column">
