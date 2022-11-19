@@ -10,7 +10,7 @@ const filterReducer = (state, action) => {
         case "SET_GRID_VIEW":
             return {
                 ...state,
-                grid_view:true,
+                grid_view: true,
             }
         default:
             return state;
