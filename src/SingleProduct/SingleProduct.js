@@ -9,6 +9,7 @@ import FormatPrice from "../styles/FormatPrice";
 import { TbTruckDelivery, TbReplace } from "react-icons/tb";
 import { MdSecurity } from "react-icons/md";
 import Star from "../Component/Star";
+import AddToCart from "../Component/AddToCart";
 
 const API = "https://api.pujakaitem.com/api/products";
 
@@ -30,7 +31,7 @@ const SingleProduct = () => {
   const { id } = useParams();
   useEffect(() => {
     getSingleProduct(`${API}?id=${id}`);
-  },[]);
+  }, []);
 
   if (isSingleLoading) {
     return <div className="page-loading">Loading....</div>
@@ -45,7 +46,7 @@ const SingleProduct = () => {
         </div>
         <div className="product-data">
           <h2>{name}</h2>
-          <Star stars={stars} reviews={reviews}/>
+          <Star stars={stars} reviews={reviews} />
           <p className="product-data-price">
             MRP:<del> <FormatPrice price={price + 250000} /> </del>
           </p>
@@ -72,17 +73,19 @@ const SingleProduct = () => {
             </div>
           </div>
           <div className="product-data-info">
-              <p>
-                Available:
-                <span> {stock > 0 ? "In Stock" : "Not Available"}</span>
-              </p>
-              <p>
-                ID : <span> {id} </span>
-              </p>
-              <p>
-                Brand :<span> {company} </span>
-              </p>
-            </div>
+            <p>
+              Available:
+              <span> {stock > 0 ? "In Stock" : "Not Available"}</span>
+            </p>
+            <p>
+              ID : <span> {id} </span>
+            </p>
+            <p>
+              Brand :<span> {company} </span>
+            </p>
+          </div>
+          <hr />
+          {stock > 0 && <AddToCart product={singleProduct} />}
         </div>
       </div>
     </Container>
