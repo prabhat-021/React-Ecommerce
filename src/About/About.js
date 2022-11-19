@@ -8,7 +8,6 @@ const myName =useProductContext();
 
     return (
         <>
-        {myName}
        <HeroSection />
        </>
     );

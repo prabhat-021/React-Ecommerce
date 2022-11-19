@@ -92,7 +92,8 @@ const Wrapper = styled.section`
     h3 {
       color: ${({ theme }) => theme.colors.hr};
       ${'' /* color:black; */}
-      font-size: 3rem;
+      font-size: 2.5rem;
+      font-weight:600;
       margin-bottom: 2.4rem;
     }
     p {
