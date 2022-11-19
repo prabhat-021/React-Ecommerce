@@ -10,7 +10,7 @@ export default function MyImage({ imgs = [{ url: "" }] }) {
 
                     <figure key={index}>
                         <img src={curElm.url} alt={curElm.filename} className="box-image--style"
-                            onClick={() => setMainImage(curElm)}
+                            onMouseOver={() => setMainImage(curElm)}
                         />
                     </figure>
                 
