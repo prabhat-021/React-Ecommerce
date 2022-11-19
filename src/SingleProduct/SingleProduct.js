@@ -39,7 +39,7 @@ const SingleProduct = () => {
     <PageNavigation title={name} />
     <Container className="container">
       <div className="grid grid-two-column">
-        <div className="product_images">
+        <div className="product-images">
           <MyImage imgs={image} />
         </div>
         <div className="product-data">
@@ -91,6 +91,11 @@ const SingleProduct = () => {
 const Wrapper = styled.section`
   .container {
     padding: 9rem 0;
+  }
+  .product-images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .product-data {
     display: flex;
