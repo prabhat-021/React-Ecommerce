@@ -8,12 +8,13 @@ export default function FilterSection() {
         let newVal = data.map((curElm) => {
             return curElm[property];
         });
-        return newVal = ["ALL", ...new Set(newVal)];
+        return newVal = ["all", ...new Set(newVal)];
         // console.log(newVal);
     };
 
     const categoryOnlyData = getUniqueData(all_product, "category");
-console.log(categoryOnlyData);
+    const companyOnlyData = getUniqueData(all_product, "company");
+
     return <Wrapper>
         <div className="filter-search">
             <form onSubmit={(e) => e.preventDefault()}>
@@ -36,6 +37,19 @@ console.log(categoryOnlyData);
                     </button>
                 })}
             </div>
+        </div>
+        <div className="filter-company">
+            <h3>Comapany</h3>
+            <form action="#">
+                {/* <label></label> */}
+                <select name="company" id="company" className="filter-company--select" onClick={upadteFilterVlaue}>
+                    {
+                        companyOnlyData.map((curElm, index) => {
+                            return <option key={index} name="company" value={curElm}>{curElm} </option>
+                        })
+                    }
+                </select>
+            </form>
         </div>
     </Wrapper>
 }
