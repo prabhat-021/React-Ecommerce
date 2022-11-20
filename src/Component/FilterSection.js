@@ -2,7 +2,18 @@ import styled from "styled-components";
 import { useFilterContext } from "../context/FilterContext";
 
 export default function FilterSection() {
-    const {filters: {text} , upadteFilterVlaue } = useFilterContext();
+    const { filters: { text, category }, upadteFilterVlaue, all_product } = useFilterContext();
+
+    const getUniqueData = (data, property) => {
+        let newVal = data.map((curElm) => {
+            return curElm[property];
+        });
+        return newVal = ["ALL", ...new Set(newVal)];
+        // console.log(newVal);
+    };
+
+    const categoryOnlyData = getUniqueData(all_product, "category");
+console.log(categoryOnlyData);
     return <Wrapper>
         <div className="filter-search">
             <form onSubmit={(e) => e.preventDefault()}>
@@ -11,8 +22,20 @@ export default function FilterSection() {
                     name="text"
                     value={text}
                     onChange={upadteFilterVlaue}
+                    placeholder="SEARCH"
                 />
             </form>
+        </div>
+
+        <div className="filter-category">
+            <h3>Category</h3>
+            <div>
+                {categoryOnlyData.map((curElm, index) => {
+                    return <button key={index} type="button" name="category" value={curElm} onClick={upadteFilterVlaue}>
+                        {curElm}
+                    </button>
+                })}
+            </div>
         </div>
     </Wrapper>
 }

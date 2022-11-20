@@ -10,6 +10,8 @@ const initialState = {
     sorting_value: "lowest",
     filters: {
         text: "",
+        company: "all",
+        category: "all",
     },
 }
 
@@ -32,15 +34,15 @@ export const FilterContextProvider = ({ children }) => {
     }
 
     const upadteFilterVlaue = (event) => {
-        let name=event.target.name;
-        let value=event.target.value;
-        return dispatch({type:"UPDATE_FILTER_VALUE", payload: {name,value}})
+        let name = event.target.name;
+        let value = event.target.value;
+        return dispatch({ type: "UPDATE_FILTER_VALUE", payload: { name, value } })
     }
 
     useEffect(() => {
-        dispatch({type:"FILTER_PRODUCTS"})
+        dispatch({ type: "FILTER_PRODUCTS" })
         dispatch({ type: "SORTING_PRODUCTS" })
-    }, [products,state.sorting_value,state.filters])
+    }, [products, state.sorting_value, state.filters])
 
     useEffect(() => {
         dispatch({ type: "LOAD_FILTER_DATA", payload: products })
