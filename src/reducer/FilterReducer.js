@@ -18,11 +18,38 @@ const filterReducer = (state, action) => {
                 grid_view: false,
             }
         case "GET_SORT_VALUE":
-            let userSortValue = document.getElementById("sort");
-            let sort_value =userSortValue.options[userSortValue.selectedIndex].value;
+            // let userSortValue = document.getElementById("sort");
+            // let sort_value = userSortValue.options[userSortValue.selectedIndex].value;
             return {
                 ...state,
-                sorting_value:sort_value,
+                sorting_value: action.payload,
+            }
+        case "SORTING_PRODUCTS":
+            let newSortData;
+            const { filter_product } = state;
+            let tempSortProduct = [...filter_product];
+            console.log(tempSortProduct)
+
+            const sortingProduct = (a, b) => {
+                if (state.sorting_value === "lowest") {
+                    return a.price - b.price;
+                    // let lowestSortProduct = tempSortProduct.map(a => a.price);
+                }
+                if (state.sorting_value === "highest") {
+                    return b.price - a.price;
+                };
+                if (state.sorting_value === "a-z") {
+                    return a.name.localeCompare(b.name)
+                }
+                if (state.sorting_value === "z-a") {
+                    return b.name.localeCompare(a.name)
+                }
+            }
+            newSortData = tempSortProduct.sort(sortingProduct);
+
+            return {
+                ...state,
+                filter_product: newSortData,
             }
         default:
             return state;

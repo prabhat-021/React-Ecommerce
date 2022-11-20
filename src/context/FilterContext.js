@@ -23,13 +23,14 @@ export const FilterContextProvider = ({ children }) => {
         return dispatch({ type: "SET_LIST_VIEW" })
     }
 
-    const sorting = () => {
-        return dispatch({ type: "GET_SORT_VALUE" })
+    const sorting = (event) => {
+        let userValue=event.target.value;
+        return dispatch({ type: "GET_SORT_VALUE" ,payload: userValue})
     }
 
-    useEffect(()=>{
-        
-    },[state.sorting_value])
+    useEffect(() => {
+        dispatch({ type: "SORTING_PRODUCTS"})
+    }, [state.sorting_value])
 
     useEffect(() => {
         dispatch({ type: "LOAD_FILTER_DATA", payload: products })
