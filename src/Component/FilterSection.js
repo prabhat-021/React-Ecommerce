@@ -1,20 +1,27 @@
 import styled from "styled-components";
 import { useFilterContext } from "../context/FilterContext";
+import { FaCheck } from "react-icons/fa";
 
 export default function FilterSection() {
-    const { filters: { text, category }, upadteFilterVlaue, all_product } = useFilterContext();
+    const { filters: { text, category }, upadteFilterVlaue, all_product, colors } = useFilterContext();
 
     const getUniqueData = (data, property) => {
         let newVal = data.map((curElm) => {
             return curElm[property];
         });
-        return newVal = ["all", ...new Set(newVal)];
+
+        if (property === "colors") {
+            return newVal = ["all", ...new Set([].concat(...newVal))]
+        } else {
+            return newVal = ["all", ...new Set(newVal)];
+        }
         // console.log(newVal);
     };
 
     const categoryOnlyData = getUniqueData(all_product, "category");
     const companyOnlyData = getUniqueData(all_product, "company");
-
+    const colorOnlyData = getUniqueData(all_product, "colors");
+    console.log(colorOnlyData);
     return <Wrapper>
         <div className="filter-search">
             <form onSubmit={(e) => e.preventDefault()}>
@@ -50,6 +57,18 @@ export default function FilterSection() {
                     }
                 </select>
             </form>
+        </div>
+        <div className="filter-color colors">
+            <h3>Colors</h3>
+            <div className="filter-color-style">{
+                colorOnlyData.map((curElm, index) => {
+                    if (curElm === "all") {
+                        return <button key={index} name="colors" value={curElm} type="button" className="color-all--style" onClick={upadteFilterVlaue}>all</button>
+                    }
+                    return <button key={index} name="colors" value={curElm} type="button" style={{ backgroundColor: curElm }} className={colors === curElm ? "btnStyle active" : "btnStyle"} onClick={upadteFilterVlaue}>{colors === curElm ? <FaCheck className="checkStyle" /> : null}
+                    </button>
+                })
+            }</div>
         </div>
     </Wrapper>
 }
