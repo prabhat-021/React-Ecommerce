@@ -18,6 +18,14 @@ const CartReducer = (state, action) => {
             cart: [...state.cart, cartProduct],
         }
     }
+    if (action.type === "REMOVE_ITEM") {
+        let updatedCart = state.cart.filter(
+            (curElm) => curElm.id !== action.payload)
+        return {
+            ...state,
+            cart: updatedCart,
+        }
+    }
     return state;
 }
 export default CartReducer;
