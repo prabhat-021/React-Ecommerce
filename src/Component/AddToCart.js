@@ -33,7 +33,7 @@ export default function AddToCart({ product }) {
         setDecrease={setDecrease}
         setIncrease={setIncrease}
       />
-      <NavLink to="/cart" onClick={() => addToCart(id, color, amount, product)}><Button className="btn">Add To Cart</Button> </NavLink>
+      <NavLink to="/cart" ><Button className="btn" onClick={() => addToCart(id, color, amount, product)}>Add To Cart</Button> </NavLink>
     </Wrapper>);
 }
 

@@ -23,7 +23,7 @@ export default function FilterSection() {
   const categoryOnlyData = getUniqueData(all_product, "category");
   const companyOnlyData = getUniqueData(all_product, "company");
   const colorOnlyData = getUniqueData(all_product, "colors");
-  console.log(colorOnlyData);
+  // console.log(colorOnlyData);
   return <Wrapper>
     <div className="filter-search">
       <form onSubmit={(e) => e.preventDefault()}>
