@@ -4,14 +4,8 @@ import FormatPrice from "../styles/FormatPrice";
 import { useCartContext } from "../context/CartContext";
 
 export default function CartItem({ id, image, amount, price, color, name }) {
-    function setDecrease() {
-        // amount > 1 ? setAmount(amount - 1) : setAmount(1);
-    }
-    function setIncrease() {
-        // amount < stock ? setAmount(amount + 1) : setAmount(stock);
-    }
 
-    const { removeItem } = useCartContext();
+    const { removeItem, setIncrease, setDecrease } = useCartContext();
 
     return <div className="cart_heading grid grid-five-column">
         <div className="cart-image--name">
@@ -37,8 +31,8 @@ export default function CartItem({ id, image, amount, price, color, name }) {
         </div>
         <CartAmountToggle
             amount={amount}
-            setDecrease={setDecrease}
-            setIncrease={setIncrease}
+            setDecrease={() => setDecrease(id)}
+            setIncrease={() => setIncrease(id)}
         />
         <div className="cart-hide">
             <p>

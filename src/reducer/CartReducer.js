@@ -56,6 +56,38 @@ const CartReducer = (state, action) => {
             cart: []
         }
     }
+    if (action.type === "SET_DECREMENT") {
+        let updatedProduct = state.cart.map((curElm) => {
+            if (curElm.id === action.payload) {
+                let decAmount = curElm.amount - 1;
+                if (decAmount <= 1) {
+                    decAmount = 1;
+                }
+                return {
+                    ...curElm, amount: decAmount,
+                }
+            } else {
+                return curElm;
+            }
+        })
+        return { ...state, cart: updatedProduct }
+    }
+    if (action.type === "SET_INCREMENT") {
+        let updatedProduct = state.cart.map((curElm) => {
+            if (curElm.id === action.payload) {
+                let incAmount = curElm.amount + 1;
+                if (incAmount >= curElm.max) {
+                    incAmount = curElm.max;
+                }
+                return {
+                    ...curElm, amount: incAmount,
+                }
+            } else {
+                return curElm;
+            }
+        })
+        return { ...state, cart: updatedProduct }
+    }
     return state;
 }
 export default CartReducer;
