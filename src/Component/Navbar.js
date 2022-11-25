@@ -3,52 +3,55 @@ import styled from "styled-components";
 import { FiShoppingCart } from "react-icons/fi";
 import { CgMenu, CgClose } from "react-icons/cg";
 import { useState } from "react";
+import { useCartContext } from "../context/CartContext";
 
 export default function Navbar() {
 
-    const [menuIcon, setMenuIcon] = useState();
+  const [menuIcon, setMenuIcon] = useState();
+  const { total_item } = useCartContext();
+  console.log(total_item);
 
-    return (
-        <Nav>
-            <div className={menuIcon ? "navbar active" : "navbar"}>
-                <ul className="navbar-lists">
-                    <li>
-                        <NavLink to="/" className="navbar-link home-link">HOME</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/about" className="navbar-link">ABOUT</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/product" className="navbar-link">PRODUCTS</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/contact" className="navbar-link">CONTACT</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/cart" className="navbar-link cart-trolley--link">
-                            <FiShoppingCart className="cart-trolley" />
-                            <span className="cart-total--item">10</span>
-                        </NavLink>
-                    </li>
-                </ul>
-                <div className="mobile-navbar-btn" >
-                    <CgMenu
-                        name="menu-outline"
-                        className="mobile-nav-icon"
-                        onClick={() => setMenuIcon(true)} 
+  return (
+    <Nav>
+      <div className={menuIcon ? "navbar active" : "navbar"}>
+        <ul className="navbar-lists">
+          <li>
+            <NavLink to="/" className="navbar-link home-link">HOME</NavLink>
+          </li>
+          <li>
+            <NavLink to="/about" className="navbar-link">ABOUT</NavLink>
+          </li>
+          <li>
+            <NavLink to="/product" className="navbar-link">PRODUCTS</NavLink>
+          </li>
+          <li>
+            <NavLink to="/contact" className="navbar-link">CONTACT</NavLink>
+          </li>
+          <li>
+            <NavLink to="/cart" className="navbar-link cart-trolley--link">
+              <FiShoppingCart className="cart-trolley" />
+              <span className="cart-total--item"> { total_item } </span>
+            </NavLink>
+          </li>
+        </ul>
+        <div className="mobile-navbar-btn" >
+          <CgMenu
+            name="menu-outline"
+            className="mobile-nav-icon"
+            onClick={() => setMenuIcon(true)}
 
-                        />
-                    <CgClose
-                        name="close-outline"
-                        className="mobile-nav-icon close-outline"
-                        onClick={() => setMenuIcon(false)} 
+          />
+          <CgClose
+            name="close-outline"
+            className="mobile-nav-icon close-outline"
+            onClick={() => setMenuIcon(false)}
 
-                        />
+          />
 
-                </div>
-            </div>
-        </Nav>
-    );
+        </div>
+      </div>
+    </Nav>
+  );
 }
 
 const Nav = styled.nav`
@@ -95,7 +98,7 @@ const Nav = styled.nav`
         width: 2.4rem;
         height: 2.4rem;
         position: absolute;
-        ${'' /* background-color: #000; */}
+        background-color: #000;
         color: #000;
         border-radius: 50%;
         display: grid;
