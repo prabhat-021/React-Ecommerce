@@ -11,7 +11,7 @@ export default function Navbar() {
 
   const [menuIcon, setMenuIcon] = useState();
   const { total_item } = useCartContext();
-  const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
+  const { loginWithRedirect, logout, isAuthenticated, user } = useAuth0();
   // console.log(total_item);
 
   return (
@@ -30,6 +30,7 @@ export default function Navbar() {
           <li>
             <NavLink to="/contact" className="navbar-link">CONTACT</NavLink>
           </li>
+          {isAuthenticated && <p>{user.name}</p>}
           {
             isAuthenticated ? <li>
               <Button onClick={() => logout({ returnTo: window.location.origin })}>

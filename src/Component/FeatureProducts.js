@@ -1,27 +1,30 @@
 import { useProductContext } from "../context/ProductContext";
 import styled from "styled-components";
 import Product from "../Component/Product";
+import { NavLink } from "react-router-dom";
 
 export default function FeatureProducts() {
-    const { isLoading, featureProducts } = useProductContext();
-    // console.log(featureProducts);
-    if (isLoading) {
-        return <div> ......Loading </div>;
-    }
+  const { isLoading, featureProducts } = useProductContext();
+  // console.log(featureProducts);
+  if (isLoading) {
+    return <div> ......Loading </div>;
+  }
 
-    return (
-        <Wrapper className="section">
-            <div className="container">
-                <div className="intro-data">Check Now!</div>
-                <div className="common-heading">Our Feature Services</div>
-                <div className="grid grid-three-column">
-                    {featureProducts.map((curElem) => {
-                        return <Product key={curElem.id} {...curElem} />;
-                    })}
-                </div>
-            </div>
-        </Wrapper>
-    );
+  return (
+    <Wrapper className="section">
+      <div className="container">
+        <NavLink to="/product">
+          <div className="intro-data">Check Now!</div>
+        </NavLink>
+        <div className="common-heading">Our Feature Services</div>
+        <div className="grid grid-three-column">
+          {featureProducts.map((curElem) => {
+            return <Product key={curElem.id} {...curElem} />;
+          })}
+        </div>
+      </div>
+    </Wrapper>
+  );
 }
 
 const Wrapper = styled.section`
