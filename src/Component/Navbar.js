@@ -9,7 +9,7 @@ export default function Navbar() {
 
   const [menuIcon, setMenuIcon] = useState();
   const { total_item } = useCartContext();
-  console.log(total_item);
+  // console.log(total_item);
 
   return (
     <Nav>
