@@ -4,11 +4,14 @@ import { FiShoppingCart } from "react-icons/fi";
 import { CgMenu, CgClose } from "react-icons/cg";
 import { useState } from "react";
 import { useCartContext } from "../context/CartContext";
+import { useAuth0 } from "@auth0/auth0-react";
+import { Button } from "../styles/Button";
 
 export default function Navbar() {
 
   const [menuIcon, setMenuIcon] = useState();
   const { total_item } = useCartContext();
+  const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
   // console.log(total_item);
 
   return (
@@ -27,10 +30,19 @@ export default function Navbar() {
           <li>
             <NavLink to="/contact" className="navbar-link">CONTACT</NavLink>
           </li>
+          {
+            isAuthenticated ? <li>
+              <Button onClick={() => logout({ returnTo: window.location.origin })}>
+                Log Out
+              </Button>
+            </li> : <li>
+              <Button onClick={() => loginWithRedirect()}>Log In</Button>
+            </li>
+          }
           <li>
             <NavLink to="/cart" className="navbar-link cart-trolley--link">
               <FiShoppingCart className="cart-trolley" />
-              <span className="cart-total--item"> { total_item } </span>
+              <span className="cart-total--item"> {total_item} </span>
             </NavLink>
           </li>
         </ul>
