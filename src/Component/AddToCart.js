@@ -10,14 +10,14 @@ export default function AddToCart({ product }) {
 
   const { addToCart } = useCartContext();
 
-  const { id, colors, stock } = product;
+  const { id, colors, stocks , image} = product;
   const [color, setColor] = useState(colors[0]);
   const [amount, setAmount] = useState(1);
   function setDecrease() {
     amount > 1 ? setAmount(amount - 1) : setAmount(1);
   }
   function setIncrease() {
-    amount < stock ? setAmount(amount + 1) : setAmount(stock);
+    amount < stocks ? setAmount(amount + 1) : setAmount(stocks);
   }
   return (
     <Wrapper>
@@ -33,7 +33,7 @@ export default function AddToCart({ product }) {
         setDecrease={setDecrease}
         setIncrease={setIncrease}
       />
-      <NavLink to="/cart" ><Button className="btn" onClick={() => addToCart(id, color, amount, product)}>Add To Cart</Button> </NavLink>
+      <NavLink to="/cart" ><Button className="btn" onClick={() => addToCart(id, color, amount,image,product)}>Add To Cart</Button> </NavLink>
     </Wrapper>);
 }
 

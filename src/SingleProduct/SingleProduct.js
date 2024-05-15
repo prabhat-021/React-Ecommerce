@@ -4,14 +4,14 @@ import { useEffect } from "react";
 import { useProductContext } from "../context/ProductContext";
 import PageNavigation from "../Component/PageNavigation";
 import { Container } from "../styles/Container";
-import MyImage from "../Component/MyImage";
 import FormatPrice from "../styles/FormatPrice";
 import { TbTruckDelivery, TbReplace } from "react-icons/tb";
 import { MdSecurity } from "react-icons/md";
 import Star from "../Component/Star";
 import AddToCart from "../Component/AddToCart";
+// import {API} from "../Assets/Data/data";
 
-const API = "https://api.pujakaitem.com/api/products";
+const API = "https://api.npoint.io/eedc6772f9ebc2461fe8";
 
 const SingleProduct = () => {
   const { getSingleProduct, isSingleLoading, singleProduct } = useProductContext();
@@ -22,15 +22,16 @@ const SingleProduct = () => {
     price,
     description,
     category,
-    stock,
+    stocks,
     stars,
     reviews,
     image,
   } = singleProduct;
-
+  console.log(image);
+  console.log(singleProduct);
   const { id } = useParams();
   useEffect(() => {
-    getSingleProduct(`${API}?id=${id}`);
+    getSingleProduct(id);
   }, []);
 
   if (isSingleLoading) {
@@ -42,7 +43,9 @@ const SingleProduct = () => {
     <Container className="container">
       <div className="grid grid-two-column">
         <div className="product-images">
-          <MyImage imgs={image} />
+          <div className="main-screen">
+            <img src={image} alt="Loading" />
+          </div>
         </div>
         <div className="product-data">
           <h2>{name}</h2>
@@ -75,7 +78,7 @@ const SingleProduct = () => {
           <div className="product-data-info">
             <p>
               Available:
-              <span> {stock > 0 ? "In Stock" : "Not Available"}</span>
+              <span> {stocks > 0 ? "In Stock" : "Not Available"}</span>
             </p>
             <p>
               ID : <span> {id} </span>
@@ -85,7 +88,7 @@ const SingleProduct = () => {
             </p>
           </div>
           <hr />
-          {stock > 0 && <AddToCart product={singleProduct} />}
+          {stocks > 0 && <AddToCart product={singleProduct} />}
         </div>
       </div>
     </Container>

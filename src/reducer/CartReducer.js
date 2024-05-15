@@ -1,15 +1,15 @@
 const CartReducer = (state, action) => {
     switch (action.type) {
         case "ADD_TO_CART":
-            let { id, color, amount, product } = action.payload;
-            let existingProduct = state.cart.find((curElm) => curElm.id === id + color);
+            let { id, color, amount, image,product } = action.payload;
+            let existingProduct = state.cart.find((curElm) => curElm.id === (id + color));
             if (existingProduct) {
                 let updatedProduct = state.cart.map((curElm) => {
                     if (curElm.id == id + color) {
                         let newAmount = curElm.amount + amount;
 
-                        if (newAmount >= curElm.max) {
-                            newAmount = curElm.max;
+                        if (newAmount >= 10) {
+                            newAmount = 10;
                         }
                         return {
                             ...curElm,
@@ -31,7 +31,7 @@ const CartReducer = (state, action) => {
                     id: id + color,
                     color,
                     amount,
-                    image: product.image[0].url,
+                    image: image,
                     price: product.price,
                     max: product.stock,
                 }
@@ -74,8 +74,8 @@ const CartReducer = (state, action) => {
             let updatedProduct1 = state.cart.map((curElm) => {
                 if (curElm.id === action.payload) {
                     let incAmount = curElm.amount + 1;
-                    if (incAmount >= curElm.max) {
-                        incAmount = curElm.max;
+                    if (incAmount >= 10) {
+                        incAmount = 10;
                     }
                     return {
                         ...curElm, amount: incAmount,
