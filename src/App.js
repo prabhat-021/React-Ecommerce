@@ -10,7 +10,7 @@ import ErrorPage from "./ErrorPage/ErrorPage";
 import { GlobalStyle } from "./GlobalStyle";
 import { ThemeProvider } from "styled-components";
 import Header from "./Component/Header";
-import Footer from "./Component/Footer";
+import Footer from "./Component/Footer/Footer";
 
 export default function App() {
   const theme = {

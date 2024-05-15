@@ -7,39 +7,39 @@ import { RiSecurePaymentLine } from "react-icons/ri";
 
 
 export default function Services() {
-    return (
-        <Wrapper>
-            <div className='container'>
-                <div className='grid grid-three-column'>
-                    <div className='services-1'>
-                        <div>
-                            <TbTruckDelivery className='icon' />
-                            <h3>Super Fast And Free Delivery</h3>
-                        </div>
-                    </div>
-                    <div className='services-2'>
-                        <div className='services-colum-2'>
-                            <MdSecurity className='icon' />
-                            <h3>Non-Contact Shipping</h3>
-                        </div>
-                        <div className='services-colum-2'>
-                            <GiReceiveMoney className='icon' />
-                            <h3>Money-Back Gurrented</h3>
-                        </div>
-                    </div>
-                    <div className='services-3'>
-                        <div>
-                            <RiSecurePaymentLine className='icon' />
-                            <h3>Super Secure Payment System</h3>
-                        </div>
-                    </div>
-                </div>
+  return (
+    <Wrapper>
+      <div className='container'>
+        <div className='grid grid-three-column'>
+          <div className='services-1'>
+            <div>
+              <TbTruckDelivery className='icon' />
+              <h3>Super Fast And Free Delivery</h3>
             </div>
+          </div>
+          <div className='services-2'>
+            <div className='services-colum-2'>
+              <MdSecurity className='icon' />
+              <h3>Non-Contact Shipping</h3>
+            </div>
+            <div className='services-colum-2'>
+              <GiReceiveMoney className='icon' />
+              <h3>Money-Back Gurrented</h3>
+            </div>
+          </div>
+          <div className='services-3'>
+            <div>
+              <RiSecurePaymentLine className='icon' />
+              <h3>Super Secure Payment System</h3>
+            </div>
+          </div>
+        </div>
+      </div>
 
 
 
-        </Wrapper>
-    );
+    </Wrapper>
+  );
 }
 
 const Wrapper = styled.section`

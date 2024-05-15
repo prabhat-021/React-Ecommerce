@@ -3,7 +3,7 @@ import { BsFillGridFill, BsList } from "react-icons/bs"
 import { useFilterContext } from "../context/FilterContext";
 
 export default function Sort() {
-  const { grid_view, setGridView, setListView, filter_product , sorting} = useFilterContext();
+  const { grid_view, setGridView, setListView, filter_product, sorting } = useFilterContext();
 
   return <Wrapper className="sort-section">
     <div className="sorting-list--grid">

@@ -12,7 +12,7 @@ const getLocalStorageData = () => {
     // }
     const parsedData = JSON.parse(newCartData);
     if (!Array.isArray(parsedData)) return [];
-  
+
     return parsedData;
 }
 

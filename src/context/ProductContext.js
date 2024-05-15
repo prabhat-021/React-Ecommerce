@@ -46,7 +46,7 @@ const AppProvider = ({ children }) => {
         getProducts(API);
     }, []);
 
-    return <AppContext.Provider value={{ ...state , getSingleProduct}}>{children}</AppContext.Provider>
+    return <AppContext.Provider value={{ ...state, getSingleProduct }}>{children}</AppContext.Provider>
 };
 
 // Custum hook

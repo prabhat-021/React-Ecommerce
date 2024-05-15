@@ -5,7 +5,7 @@ import FormatPrice from "../styles/FormatPrice";
 import { Button } from "../styles/Button";
 
 export default function FilterSection() {
-  const { filters: { text, category, maxPrice, minPrice, price, colors }, upadteFilterVlaue, all_product , clearFilter} = useFilterContext();
+  const { filters: { text, category, maxPrice, minPrice, price, colors }, upadteFilterVlaue, all_product, clearFilter } = useFilterContext();
 
   const getUniqueData = (data, property) => {
     let newVal = data.map((curElm) => {

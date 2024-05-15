@@ -3,21 +3,21 @@ import { AiOutlineStar } from "react-icons/ai";
 import styled from "styled-components";
 
 export default function Star({ stars, reviews }) {
-    const starRating = Array.from({ length: 5 }, (elem, index) => {
-        let number = index + 0.5;
-        return (
-            <span key={index}>
-                {stars >= index + 1 ? <FaStar className="icon" /> : stars >= number ? <FaStarHalfAlt className="icon" /> : <AiOutlineStar className="icon" />}
-            </span>
-        );
+  const starRating = Array.from({ length: 5 }, (elem, index) => {
+    let number = index + 0.5;
+    return (
+      <span key={index}>
+        {stars >= index + 1 ? <FaStar className="icon" /> : stars >= number ? <FaStarHalfAlt className="icon" /> : <AiOutlineStar className="icon" />}
+      </span>
+    );
 
-    })
-    return <Wrapper >
-        <div className="icon-style">
-            {starRating}
-            <p>({reviews} customer reviews)</p>
-        </div>
-    </Wrapper>
+  })
+  return <Wrapper >
+    <div className="icon-style">
+      {starRating}
+      <p>({reviews} customer reviews)</p>
+    </div>
+  </Wrapper>
 }
 
 const Wrapper = styled.section`

@@ -2,25 +2,25 @@ import styled from "styled-components";
 // import react from "react";
 import { useState } from "react";
 export default function MyImage({ imgs = [{ url: "" }] }) {
-    const [mainImage, setMainImage] = useState(imgs[0]);
-    return <Wrapper>
-        <div className="grid grid-four-column">
-            {imgs.map((curElm, index) => {
-                return (
+  const [mainImage, setMainImage] = useState(imgs[0]);
+  return <Wrapper>
+    <div className="grid grid-four-column">
+      {imgs.map((curElm, index) => {
+        return (
 
-                    <figure key={index}>
-                        <img src={curElm.url} alt={curElm.filename} className="box-image--style"
-                            onMouseOver={() => setMainImage(curElm)}
-                        />
-                    </figure>
-                
-            );
-        })}
-        </div>
-        <div className="main-screen">
-            <img src={mainImage.url} alt={mainImage.filename} />
-        </div>
-    </Wrapper>
+          <figure key={index}>
+            <img src={curElm.url} alt={curElm.filename} className="box-image--style"
+              onMouseOver={() => setMainImage(curElm)}
+            />
+          </figure>
+
+        );
+      })}
+    </div>
+    <div className="main-screen">
+      <img src={mainImage.url} alt={mainImage.filename} />
+    </div>
+  </Wrapper>
 }
 
 const Wrapper = styled.section`

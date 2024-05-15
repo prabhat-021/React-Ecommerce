@@ -1,13 +1,13 @@
 import styled from "styled-components";
 import Product from "./Product";
-export default function GridView({products}) {
-    return <Wrapper className="section">
-        <div className="grid grid-three-column">
-                {products.map((curElm,id)=>{
-                   return <Product key={curElm.id} {...curElm} />
-                })}
-        </div>
-    </Wrapper>
+export default function GridView({ products }) {
+  return <Wrapper className="section">
+    <div className="grid grid-three-column">
+      {products.map((curElm, id) => {
+        return <Product key={curElm.id} {...curElm} />
+      })}
+    </div>
+  </Wrapper>
 
 }
 

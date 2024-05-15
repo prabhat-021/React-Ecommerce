@@ -1,0 +1,110 @@
+/* Footer-section css start */
+.footer {
+  position: relative;
+  margin: 10% 5% 0 5%;
+  font-family: "Poppins", sans-serif;
+
+}
+
+.foot-list-h1 {
+  color: #fff !important;
+  margin-bottom: 40px;
+  font-weight: 500;
+  font-size: 2.6rem;
+}
+
+#foot-grid {
+  color: #777777;
+  font-family: "Poppins", sans-serif;
+  /* font-size: 24px; */
+  font-weight: 300;
+  line-height: 1.625em;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 0.9fr 1fr 1fr;
+  background-color: #04091e;
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.icon-list {
+  list-style: none;
+  padding: 0;
+}
+
+.icon-list-1 {
+  font-size: 2.25rem;
+  margin-bottom: 2%;
+  letter-spacing: 1.5px;
+  color: #777;
+  text-decoration: none;
+  list-style: none;
+}
+
+.icon-list-2 {
+  margin: 6% 0 6% 0;
+}
+
+.icon-list-3 {
+  margin: 3% 0 3% 0;
+}
+
+.foot-social {
+  text-align: left;
+  margin-left: 15%;
+}
+
+.foot-link .foot-services {
+  text-align: left;
+  margin-right: 4%;
+}
+
+.services-ls {
+  margin-bottom: 5%;
+}
+
+.question {
+  font-size: 2rem;
+  margin: 6% 0 6% 0;
+}
+
+#question-icon {
+  font-size: 1.9rem;
+}
+
+@media only screen and (max-width: 1020px) {
+  #foot-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .foot-social {
+    margin-left: 0;
+  }
+
+  .foot-social,
+  .foot-link,
+  .foot-services,
+  .foot-question {
+    margin-left: 10px;
+  }
+}
+
+@media only screen and (max-width: 520px) {
+  #foot-grid {
+    display: block;
+  }
+
+  .foot-social,
+  .foot-link,
+  .foot-services,
+  .foot-question {
+    margin-left: 10px;
+  }
+
+  .footer {
+    margin-top: 0;
+  }
+}
+
+/* Footer-section css ends */

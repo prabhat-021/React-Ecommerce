@@ -1,12 +1,12 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
-export default function PageNavigation({title}){
-    return (
-        <Wrapper>
-            <NavLink to="/">HOME</NavLink>/{title}
-        </Wrapper>
-    );
+export default function PageNavigation({ title }) {
+  return (
+    <Wrapper>
+      <NavLink to="/">HOME</NavLink>/{title}
+    </Wrapper>
+  );
 }
 
 const Wrapper = styled.section`

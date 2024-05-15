@@ -2,34 +2,35 @@ import React from 'react'
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components'
 import { Button } from '../styles/Button';
-import img1 from "../Assets/image/hero.jpg";
+import img1 from "../Assets/image/shopping2.avif";
+import img2 from "../Assets/image/shopping3.avif";
 
 
 const HeroSection = () => {
-    return (
-        <Wrapper>
-            <div className='container'>
-                <div className='grid grid-two-column'>
-                    <div className='hero-section-data'>
-                        <p className='intro-data'>
-                            WELCOME TO
-                        </p>
-                        <h1>PRABHAT STORE</h1>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-                        </p>
-                        <NavLink to="/product">
-                            <Button>Shop now</Button>
-                        </NavLink>
-                    </div>
-                    <div className='hero-section-image'>
-                        <figure>
-                            <img src={img1} alt="hero setion image" className='img-style' />
-                        </figure>
-                    </div>
-                </div>
-            </div>
-        </Wrapper>
-    );
+  return (
+    <Wrapper>
+      <div className='container'>
+        <div className='grid grid-two-column'>
+          <div className='hero-section-data'>
+            <p className='intro-data'>
+              WELCOME TO
+            </p>
+            <h1>SHOPIFY</h1>
+            <p>Welcome to our premier e-commerce destination, where innovation meets convenience! Explore a world of cutting-edge electronics and essential shopping items curated just for you. From state-of-the-art gadgets to everyday essentials, we're your one-stop shop for all things tech and beyond. Whether you're upgrading your home entertainment system or stocking up on household necessities, our extensive selection guarantees quality and affordability. With seamless navigation and secure transactions, shopping with us is not just easy, but enjoyable. Experience the future of online shopping with our e-commerce platform, where excellence is standard and satisfaction is guaranteed.
+            </p>
+            <NavLink to="/product">
+              <Button>Shop now</Button>
+            </NavLink>
+          </div>
+          <div className='hero-section-image'>
+            <figure>
+              <img src={img1} alt="hero setion image" className='img-style' />
+            </figure>
+          </div>
+        </div>
+      </div>
+    </Wrapper>
+  );
 }
 
 const Wrapper = styled.section`
@@ -61,9 +62,10 @@ const Wrapper = styled.section`
     position: relative;
     &::after {
       content: "";
-      width: 60%;
+      width: 100%;
       height: 80%;
-      background-color: rgba(81, 56, 238, 0.4);
+      background-image:url(${img2});
+      ${'' /* background-color: rgba(81, 56, 238, 0.4); */}
       position: absolute;
       left: 50%;
       top: -5rem;
@@ -77,15 +79,6 @@ const Wrapper = styled.section`
   @media (max-width: ${({ theme }) => theme.media.mobile}) {
     .grid {
       gap: 10rem;
-    }
-    figure::after {
-      content: "";
-      width: 50%;
-      height: 100%;
-      left: 0;
-      top: 10%;
-      /* bottom: 10%; */
-      background-color: rgba(81, 56, 238, 0.4);
     }
   }
 `;
